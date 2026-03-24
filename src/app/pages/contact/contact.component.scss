@@ -1,0 +1,55 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+form{
+    margin-top: 32px;
+    width: 30%;
+}
+
+.field {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+input,
+textarea {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 8px;
+    font: inherit;
+}
+
+button {
+    background: #16a379;
+    color: #fff;
+    border: 0;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+button:disabled {
+    background: #9ca3af;
+}
+
+.error {
+    color: #dc2626;
+    font-size: .85rem;
+}
+
+.ok {
+    margin-top: 8px;
+    color: #16a379;
+}
+
+.checkbox {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin: 8px 0 16px;
+}

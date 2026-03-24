@@ -1,0 +1,43 @@
+<div class="form-container">
+
+    <h2>Formulario de contacto</h2>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="field">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" type="text" formControlName="nombre" placeholder="Introduce tu nombre" />
+            @if (f.nombre.touched && f.nombre.invalid) {
+            <small class="error">El nombre es obligatorio (mín. 2 caracteres)</small>
+            }
+        </div>
+        <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" formControlName="email" placeholder="tucorreo@correo.com" />
+            @if (f.email.touched && f.email.invalid) {
+            <small class="error">Introduce un email válido</small>
+            }
+        </div>
+        <div class="field">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" rows="5" formControlName="mensaje" placeholder="¿Qué neceseitas?..."></textarea>
+            @if (f.mensaje.touched && f.mensaje.invalid) {
+            <small class="error">El mensaje es obligatorio</small>
+            }
+        </div>
+        <label class="checkbox">
+            <input type="checkbox" formControlName="aceptar" />
+            Acepto las politicas de privacidad
+        </label>
+        @if (f.aceptar.touched && f.aceptar.invalid) {
+        <small class="error">Se deben aceptar las politicas de privacidad</small>
+        }
+        <br>
+
+        <button type="submit" [disabled]="contactForm.invalid">Enviar</button>
+    </form>
+    
+    @if (enviado) {
+    <h3 class="ok">Gracias, Hemos recibido tu mensaje</h3>
+    }
+</div>
+<app-footer></app-footer>

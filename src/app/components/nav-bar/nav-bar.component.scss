@@ -1,0 +1,17 @@
+.header{
+    background-color: rgb(141, 219, 193);
+    color: white;
+    text-align: center;
+    padding: 20px;
+
+    .nav-list{
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+        .link{
+            color: rgb(223, 83, 32);
+            text-decoration: none;
+        }
+    }
+    
+}
