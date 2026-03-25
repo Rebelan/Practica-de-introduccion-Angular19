@@ -61,3 +61,43 @@ h1 {
   color: #dc2626;
   font-weight: 600;
 }
+
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.filter-input,
+.filter-select {
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 14px;
+  min-width: 220px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.filter-input:focus,
+.filter-select:focus {
+  border-color: rgb(59, 219, 166);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.reset-button {
+  padding: 12px 18px;
+  background: rgb(218, 106, 65);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.reset-button:hover {
+  background: #dc2626;
+}

@@ -1,37 +1,66 @@
 <section class="about-container">
   <h1>Acerca de</h1>
-  <p class="subtitle">Listado de usuarios obtenidos desde la API</p>
+  <p class="subtitle">Listado de usuarios con filtros</p>
 
-  @if (loading) {
-    <p class="info">Cargando usuarios...</p>
-  }
+  <!-- FILTROS -->
+  <div class="filters">
+    <input
+      type="text"
+      placeholder="Filtrar por nombre o username"
+      [value]="nameFilter()"
+      (input)="nameFilter.set($any($event.target).value)"
+      class="filter-input"
+    />
 
-  @if (error) {
-    <p class="error">{{ error }}</p>
-  }
+    <select
+      [value]="cityFilter()"
+      (change)="cityFilter.set($any($event.target).value)"
+      class="filter-select"
+    >
+      <option value="">Todas las ciudades</option>
+      <option *ngFor="let city of cities()" [value]="city">
+        {{ city }}
+      </option>
+    </select>
 
-  @if (!loading && !error) {
-    <div class="table-wrapper">
-      <table class="users-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Phone</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (user of users; track user.id) {
-            <tr (click)="goToDetail(user.id)" class="clickable-row">
-              <td>{{ user.id }}</td>
-              <td>{{ user.username }}</td>
-              <td>{{ user.email }}</td>
-              <td>{{ user.phone }}</td>
-            </tr>
-          }
-        </tbody>
-      </table>
-    </div>
-  }
+    <button (click)="resetFilters()" class="reset-button">
+      Reset
+    </button>
+  </div>
+
+  <!-- ESTADOS -->
+  <div *ngIf="loading()" class="info">
+    Cargando usuarios...
+  </div>
+
+  <div *ngIf="error()" class="error">
+    {{ error() }}
+  </div>
+
+  <!-- TABLA -->
+  <div class="table-wrapper" *ngIf="!loading() && !error()">
+    <table class="users-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr
+          *ngFor="let user of filteredUsers()"
+          (click)="goToDetail(user.id)"
+          class="clickable-row"
+        >
+          <td>{{ user.id }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phone }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
