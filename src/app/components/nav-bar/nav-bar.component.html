@@ -1,10 +1,23 @@
 <header class="header">
-    <h1>Práctica Inicial</h1>
-    <nav>
-        <ul class="nav-list">
-            <li><a class="link" routerLink="/">Home</a></li>
-            <li><a class="link" routerLink="/about">About us</a></li>
-            <li><a class="link" routerLink="/contact">Contact us</a></li>
-        </ul>
-    </nav>
+  <h1>{{ 'NAVBAR.TITLE' | translate }}</h1>
+
+  <nav>
+    <ul class="nav-list">
+      <li><a class="link" routerLink="/">{{ 'NAVBAR.HOME' | translate }}</a></li>
+      <li><a class="link" routerLink="/about">{{ 'NAVBAR.ABOUT' | translate }}</a></li>
+      <li><a class="link" routerLink="/contact">{{ 'NAVBAR.CONTACT' | translate }}</a></li>
+
+      <li class="lang-item">
+        <label for="lang">{{ 'NAVBAR.LANGUAGE' | translate }}</label>
+        <select
+          id="lang"
+          [value]="currentLang"
+          (change)="changeLanguage($any($event.target).value)"
+        >
+          <option value="es">{{ 'NAVBAR.SPANISH' | translate }}</option>
+          <option value="en">{{ 'NAVBAR.ENGLISH' | translate }}</option>
+        </select>
+      </li>
+    </ul>
+  </nav>
 </header>
