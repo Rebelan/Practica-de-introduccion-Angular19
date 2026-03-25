@@ -1,0 +1,51 @@
+{
+  
+  "NAVBAR": {
+    "TITLE": "Práctica Inicial",
+    "HOME": "Inicio",
+    "ABOUT": "Sobre nosotros",
+    "CONTACT": "Contáctanos",
+    "LANGUAGE": "Idioma",
+    "SPANISH": "Español",
+    "ENGLISH": "Inglés"
+  }
+,
+  "ABOUT": {
+    "TITLE": "Acerca de",
+    "SUBTITLE": "Listado de usuarios obtenidos desde la API",
+    "FILTER_NAME": "Filtrar por nombre o username",
+    "FILTER_CITY_ALL": "Todas las ciudades",
+    "RESET": "Resetear filtros",
+    "LOADING": "Cargando usuarios...",
+    "ERROR": "No se pudieron cargar los usuarios",
+    "EMPTY": "No se encontraron usuarios con esos filtros",
+    "TABLE": {
+      "ID": "ID",
+      "USERNAME": "Username",
+      "EMAIL": "Email",
+      "PHONE": "Teléfono"
+    }
+  },
+  "DETAIL": {
+    "BACK": "Volver al listado",
+    "LOADING": "Cargando detalle del usuario...",
+    "ERROR": "No se pudo cargar el detalle del usuario",
+    "BASIC_INFO": "Información básica",
+    "ADDRESS": "Dirección",
+    "GEO": "Geolocalización",
+    "COMPANY": "Empresa",
+    "ID": "ID",
+    "EMAIL": "Email",
+    "PHONE": "Teléfono",
+    "WEB": "Web",
+    "STREET": "Calle",
+    "SUITE": "Suite",
+    "CITY": "Ciudad",
+    "ZIPCODE": "Código postal",
+    "LAT": "Latitud",
+    "LNG": "Longitud",
+    "NAME": "Nombre",
+    "CATCHPHRASE": "Eslogan",
+    "BS": "BS"
+  }
+}

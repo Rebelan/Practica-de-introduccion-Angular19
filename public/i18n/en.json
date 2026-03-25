@@ -1,0 +1,49 @@
+{
+    "NAVBAR": {
+        "TITLE": "Initial Practice",
+        "HOME": "Home",
+        "ABOUT": "About us",
+        "CONTACT": "Contact us",
+        "LANGUAGE": "Language",
+        "SPANISH": "Spanish",
+        "ENGLISH": "English"
+    },
+    "ABOUT": {
+        "TITLE": "About",
+        "SUBTITLE": "List of users fetched from the API",
+        "FILTER_NAME": "Filter by name or username",
+        "FILTER_CITY_ALL": "All cities",
+        "RESET": "Reset filters",
+        "LOADING": "Loading users...",
+        "ERROR": "Could not load users",
+        "EMPTY": "No users matched those filters",
+        "TABLE": {
+            "ID": "ID",
+            "USERNAME": "Username",
+            "EMAIL": "Email",
+            "PHONE": "Phone"
+        }
+    },
+    "DETAIL": {
+        "BACK": "Back to list",
+        "LOADING": "Loading user details...",
+        "ERROR": "Could not load user details",
+        "BASIC_INFO": "Basic information",
+        "ADDRESS": "Address",
+        "GEO": "Geolocation",
+        "COMPANY": "Company",
+        "ID": "ID",
+        "EMAIL": "Email",
+        "PHONE": "Phone",
+        "WEB": "Website",
+        "STREET": "Street",
+        "SUITE": "Suite",
+        "CITY": "City",
+        "ZIPCODE": "Zip code",
+        "LAT": "Latitude",
+        "LNG": "Longitude",
+        "NAME": "Name",
+        "CATCHPHRASE": "Catch phrase",
+        "BS": "BS"
+    }
+}
