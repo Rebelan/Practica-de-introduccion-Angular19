@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -11,6 +12,9 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
   styleUrl: './nav-bar.component.scss'
 })
 export class NavBarComponent {
+
+  auth = inject(AuthService);
+  router = inject(Router);
 
   private translate = inject(TranslateService);
   
@@ -36,6 +40,10 @@ export class NavBarComponent {
       localStorage.setItem('lang', lang);
     });
       
+  }
+  logout(){
+    this.auth.logout();
+    this.router.navigate(['/']);
   }
 
 }
