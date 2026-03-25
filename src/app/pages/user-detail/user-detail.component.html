@@ -1,0 +1,56 @@
+<section class="detail-container">
+  <a routerLink="/about" class="back-button">← Volver al listado</a>
+
+  @if (loading) {
+    <p class="info">Cargando detalle del usuario...</p>
+  }
+
+  @if (error) {
+    <p class="error">{{ error }}</p>
+  }
+
+  @if (!loading && user) {
+    <div class="detail-card">
+      <div class="header">
+        <div class="avatar">
+          {{ user.username.charAt(0) }}
+        </div>
+        <div>
+          <h1>{{ user.name }}</h1>
+          <p class="username">{{ user.username }}</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card-section">
+          <h2>Información básica</h2>
+          <p><strong>ID:</strong> {{ user.id }}</p>
+          <p><strong>Email:</strong> {{ user.email }}</p>
+          <p><strong>Teléfono:</strong> {{ user.phone }}</p>
+          <p><strong>Web:</strong> {{ user.website }}</p>
+        </div>
+
+        <div class="card-section">
+          <h2>Dirección</h2>
+          <p><strong>Calle:</strong> {{ user.address.street }}</p>
+          <p><strong>Suite:</strong> {{ user.address.suite }}</p>
+          <p><strong>Ciudad:</strong> {{ user.address.city }}</p>
+          <p><strong>Código postal:</strong> {{ user.address.zipcode }}</p>
+        </div>
+
+        <div class="card-section">
+          <h2>Geolocalización</h2>
+          <p><strong>Latitud:</strong> {{ user.address.geo.lat }}</p>
+          <p><strong>Longitud:</strong> {{ user.address.geo.lng }}</p>
+        </div>
+
+        <div class="card-section">
+          <h2>Empresa</h2>
+          <p><strong>Nombre:</strong> {{ user.company.name }}</p>
+          <p><strong>Catch phrase:</strong> {{ user.company.catchPhrase }}</p>
+          <p><strong>BS:</strong> {{ user.company.bs }}</p>
+        </div>
+      </div>
+    </div>
+  }
+</section>

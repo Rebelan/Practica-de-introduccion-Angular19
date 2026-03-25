@@ -6,5 +6,6 @@ import { ContactComponent } from './pages/contact/contact.component';
 export const routes: Routes = [
     {path: "", component: HomeComponent},
     {path: "about", loadComponent: () => import('./pages/about/about.component').then(a => a.AboutComponent,),},
-    {path: "contact", loadComponent: () => import('./pages/contact/contact.component').then(c => c.ContactComponent,),}
+    {path: "contact", loadComponent: () => import('./pages/contact/contact.component').then(c => c.ContactComponent,),},
+    {path: "about/:id", loadComponent: () => import('./pages/user-detail/user-detail.component').then(u => u.UserDetailComponent,),}
 ];
