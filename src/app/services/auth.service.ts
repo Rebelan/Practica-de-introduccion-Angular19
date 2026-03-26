@@ -15,6 +15,11 @@ export class AuthService {
 
   currentUser = signal<User | null>(this.getUserFromStorage());
 
+
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
   private getUserFromStorage(): User | null {
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user) : null;
