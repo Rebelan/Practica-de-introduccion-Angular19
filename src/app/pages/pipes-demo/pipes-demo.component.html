@@ -1,0 +1,59 @@
+<h2>Ejercicio 2: Formatear nombre</h2>
+<p>Original: {{ nombre }}</p>
+<p>Uppercase: {{ nombre | uppercase }}</p>
+<p>Lowercase: {{ nombre | lowercase }}</p>
+<p>Titlecase: {{ nombre | titlecase }}</p>
+
+<hr>
+
+<h2>Ejercicio 3: Fecha actual con distintos formatos</h2>
+<p>Original: {{ fechaActual }}</p>
+<p>date (default): {{ fechaActual | date }}</p>
+<p>date short: {{ fechaActual | date:'short' }}</p>
+<p>date medium: {{ fechaActual | date:'medium' }}</p>
+<p>date full: {{ fechaActual | date:'fullDate' }}</p>
+<p>Formato personalizado: {{ fechaActual | date:'dd/MM/yyyy HH:mm' }}</p>
+
+<hr>
+
+<h2>Ejercicio 4: Mostrar precio con moneda</h2>
+<p>Precio en EUR: {{ precio | currency:'EUR' }}</p>
+<p>Precio en USD: {{ precio | currency:'USD' }}</p>
+<p>Precio como símbolo estrecho: {{ precio | currency:'EUR':'symbol-narrow' }}</p>
+
+<hr>
+
+<h2>Ejercicio 5: Mostrar progreso con percent</h2>
+<p>Progreso: {{ progreso | percent }}</p>
+<p>Formato más preciso: {{ progreso | percent:'1.2-2' }}</p>
+
+<hr>
+
+<h2>Ejercicio 6: Slice (mostrar parte del texto)</h2>
+<p>Texto completo: {{ textoLargo }}</p>
+<p>Slice(0, 10): {{ textoLargo | slice:0:10 }}</p>
+<p>Slice(11, 25): {{ textoLargo | slice:11:25 }}</p>
+
+<hr>
+
+<h2>Ejercicio 7: Mostrar un objeto con JSON</h2>
+<pre>{{ usuario | json }}</pre>
+
+<h2>Pipe saludo</h2>
+<p>Resultado: {{ nombre | saludo }}</p>
+
+<hr>
+
+<h2>Pipe doble</h2>
+<p>{{ numero }} x 2 = {{ numero | doble }}</p>
+
+<hr>
+
+<h2>Pipe resaltar (HTML)</h2>
+<p [innerHTML]="texto | resaltar"></p>
+
+<hr>
+
+<h2>Pipe edad</h2>
+<p>Fecha nacimiento: {{ nacimiento }}</p>
+<p>Edad: {{ nacimiento | edad }} años</p>
