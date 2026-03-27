@@ -14,6 +14,22 @@
 
 
 
+<p><strong>Estado:</strong> {{ estado }}</p>
+
+<ul>
+  <li *ngFor="let m of mensajes">
+    <!-- Mensaje normal -->
+    <span *ngIf="!m.type">Evento → {{ m.counter }} — {{ m.message }}</span>
+
+    <!-- Evento personalizado progress -->
+    <span *ngIf="m.type === 'progress'">
+      Progreso → {{ m.data.value }} %
+    </span>
+  </li>
+</ul>
+
+
+
 <section class="about-container">
   <h1>Acerca de</h1>
   <p class="subtitle">Listado de usuarios con filtros</p>

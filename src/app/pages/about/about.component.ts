@@ -3,6 +3,8 @@ import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { AboutApiService, User } from '../../services/about-api.service';
 import { Router } from '@angular/router';
 import gsap from 'gsap';
+import { Subscription } from 'rxjs';
+import { SseService } from '../../services/sse.service';
 
 @Component({
   selector: 'app-about',
@@ -14,6 +16,12 @@ import gsap from 'gsap';
 export class AboutComponent implements OnInit {
   private aboutApiService = inject(AboutApiService);
   private router = inject(Router);
+
+  mensajes: any[] = []
+  estado = 'Conectando...'
+  private sub?: Subscription;
+
+  constructor(private sse: SseService){}
 
   users = signal<User[]>([])
   loading = signal(true);
@@ -32,6 +40,17 @@ export class AboutComponent implements OnInit {
       error: () => {
         this.error.set('No se pudieron cargar los usuarios');
         this.loading.set(false);
+      }
+    });
+
+    this.sub = this.sse.connect('http://localhost:3001/events').subscribe({
+      next: (msg) => {
+        this.estado = 'Conectado!'
+        this.mensajes.unshift(msg);
+      },
+      error: (err) => {
+        console.error(err);
+        this.estado = 'Error!'
       }
     });
   }
@@ -101,6 +120,8 @@ export class AboutComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.tl.kill();
+    this.sub?.unsubscribe();
+    this.estado = 'Desconectado!';
   }
 
 }
