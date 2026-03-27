@@ -14,4 +14,44 @@
     <button class="home-cta">Animar botón</button>
 </div>
 
-<app-footer></app-footer>
+
+<h2>WebSockets – Tiempo real</h2>
+
+<p><strong>Estado:</strong> {{ estado }}</p>
+
+<button (click)="enviar()">Enviar mensaje al servidor</button>
+
+<ul>
+    <li *ngFor="let m of mensajes">
+
+        <!-- ✅ Ejercicio 8: Filtrar por tipo -->
+        <ng-container [ngSwitch]="m.type">
+
+            <p *ngSwitchCase="'notification'">
+                🔔 Notificación: {{ m.payload }}
+            </p>
+
+            <p *ngSwitchCase="'client-message'">
+                📤 Enviado desde Angular: {{ m.payload }}
+            </p>
+
+            <p *ngSwitchCase="'client-message'">
+                📤 Enviado desde Angular: {{ m.payload }}
+            </p>
+
+
+            <p *ngSwitchCase="'client-echo'">
+                🔁 Eco del servidor: {{ m.payload }}
+            </p>
+
+            <p *ngSwitchDefault>
+                📦 Otro tipo: {{ m.payload }}
+            </p>
+
+        </ng-container>
+
+    </li>
+</ul>
+
+<!-- 
+<app-footer></app-footer> -->
