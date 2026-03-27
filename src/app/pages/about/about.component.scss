@@ -101,3 +101,12 @@ h1 {
 .reset-button:hover {
   background: #dc2626;
 }
+
+.animation-cont{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 5%;
+  width: 10%;
+}

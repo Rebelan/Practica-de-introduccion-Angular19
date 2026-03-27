@@ -2,5 +2,13 @@
     display: flex;
     justify-content: center;
     gap: 10%;
-    margin-top: 10%;
+    margin-top: 5%;
+}
+.animation-cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    gap: 10px;
 }

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { AboutApiService, User } from '../../services/about-api.service';
 import { Router } from '@angular/router';
+import gsap from 'gsap';
 
 @Component({
   selector: 'app-about',
@@ -65,4 +66,41 @@ export class AboutComponent implements OnInit {
   goToDetail(id: number): void {
     this.router.navigate(['/about', id]);
   }
+
+
+
+
+  //gsap a partir de aqui
+  private tl = gsap.timeline();
+
+  ngAfterViewInit(): void {
+    //stagger
+    gsap.from('.about-item', {
+      opacity: 0,
+      y: 20,
+      stagger: 0.2,
+      duration: 1
+    });
+    //labels
+    this.tl
+    .addLabel('start')
+    .from('.about-title', {y: -30, opacity: 0, duration: 1})
+    .addLabel('middle')
+    .from('.about-text', {opacity: 0, duration: 1}, 'start+=0.5')
+    .addLabel('end')
+    .from('.about-button', {scale: 0, duration: 0.5}, 'middle+=0.3');
+
+    //callbacks
+    gsap.to('.about-alert', {
+      x: 100,
+      duration: 1,
+      onStart: () => console.log('Animacion iniciada'),
+      onComplete: () => console.log('Animacion completada')
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.tl.kill();
+  }
+
 }

@@ -1,22 +1,29 @@
+<div class="animation-cont">
+  <h2 class="about-title">Sobre mí</h2>
+  <p class="about-text">Desarrollador aprendiendo Angular + GSAP</p>
+  <button class="about-button">Leer más</button>
+
+  <div class="about-alert">→</div>
+
+  <ul>
+    <li class="about-item">Experiencia</li>
+    <li class="about-item">Proyectos</li>
+    <li class="about-item">Contacto</li>
+  </ul>
+</div>
+
+
+
 <section class="about-container">
   <h1>Acerca de</h1>
   <p class="subtitle">Listado de usuarios con filtros</p>
 
   <!-- FILTROS -->
   <div class="filters">
-    <input
-      type="text"
-      placeholder="Filtrar por nombre o username"
-      [value]="nameFilter()"
-      (input)="nameFilter.set($any($event.target).value)"
-      class="filter-input"
-    />
+    <input type="text" placeholder="Filtrar por nombre o username" [value]="nameFilter()"
+      (input)="nameFilter.set($any($event.target).value)" class="filter-input" />
 
-    <select
-      [value]="cityFilter()"
-      (change)="cityFilter.set($any($event.target).value)"
-      class="filter-select"
-    >
+    <select [value]="cityFilter()" (change)="cityFilter.set($any($event.target).value)" class="filter-select">
       <option value="">Todas las ciudades</option>
       <option *ngFor="let city of cities()" [value]="city">
         {{ city }}
@@ -50,11 +57,7 @@
       </thead>
 
       <tbody>
-        <tr
-          *ngFor="let user of filteredUsers()"
-          (click)="goToDetail(user.id)"
-          class="clickable-row"
-        >
+        <tr *ngFor="let user of filteredUsers()" (click)="goToDetail(user.id)" class="clickable-row">
           <td>{{ user.id }}</td>
           <td>{{ user.username }}</td>
           <td>{{ user.email }}</td>
